@@ -2,7 +2,7 @@
   Contenido del calendario de Adviento.
   El día 1 ya está preparado como una invitación poética a una cita de sushi.
 */
-const adventContent = [
+window.adventContent = [
   {
     title: "Una invitación especial",
     message: `<div style="text-align:center; max-width:560px; margin:0 auto; padding:4px 8px 10px; color:#493426;">
