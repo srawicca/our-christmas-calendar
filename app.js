@@ -5,9 +5,9 @@
   const title = document.getElementById("letterTitle");
   const kicker = document.getElementById("letterKicker");
   const content = document.getElementById("letterContent");
+  const bigEnvelope = document.getElementById("bigEnvelope");
+  const revealedLetter = document.getElementById("revealedLetter");
 
-  // El calendario usa diciembre del año actual. Antes del 1 de diciembre,
-  // el día 1 queda disponible para que puedas probarlo.
   const now = new Date();
   const year = now.getFullYear();
   const isDecember = now.getMonth() === 11;
@@ -28,18 +28,30 @@
     button.innerHTML = `<span class="flap" aria-hidden="true"></span><span class="day-number">${day}</span><span class="botanical" aria-hidden="true">${symbols[(day - 1) % symbols.length]}</span>${locked ? '<span class="lock-mark" aria-hidden="true">✦</span>' : ''}`;
     button.addEventListener("click", () => {
       if (locked) return;
-      button.classList.add("opening", "opened");
+      button.classList.add("opened");
       const item = (window.adventContent || [])[day - 1] || {};
       title.textContent = item.title || `Día ${day}`;
       kicker.textContent = `Una sorpresa para ti · ${day} de diciembre`;
       content.innerHTML = item.message || "Pronto habrá una sorpresa aquí.";
+      bigEnvelope.classList.remove("opening");
+      revealedLetter.classList.remove("show");
       dialog.showModal();
-      window.setTimeout(() => button.classList.remove("opening"), 500);
+      // Reinicia las animaciones cada vez que se abre un día.
+      void bigEnvelope.offsetWidth;
+      window.setTimeout(() => {
+        bigEnvelope.classList.add("opening");
+        revealedLetter.classList.add("show");
+      }, 80);
     });
     calendar.appendChild(button);
   }
-  closeButton.addEventListener("click", () => dialog.close());
+  function closeDialog() {
+    dialog.close();
+    bigEnvelope.classList.remove("opening");
+    revealedLetter.classList.remove("show");
+  }
+  closeButton.addEventListener("click", closeDialog);
   dialog.addEventListener("click", (event) => {
-    if (event.target === dialog) dialog.close();
+    if (event.target === dialog) closeDialog();
   });
 })();

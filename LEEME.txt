@@ -1,23 +1,11 @@
-CALENDARIO DE ADVIENTO - ARCHIVOS PARA GITHUB PAGES
+ACTUALIZACIÓN: ANIMACIÓN DE APERTURA A PANTALLA COMPLETA
 
-QUÉ INCLUYE
-- index.html: estructura de la página
-- style.css: diseño de sobres vintage (verde, burdeos y crema)
-- app.js: cuadrícula, apertura y bloqueo por fecha
-- content.js: textos de las 24 sorpresas
+Sube estos cinco archivos a la raíz de tu repositorio GitHub, sustituyendo los actuales:
+index.html, style.css, app.js, content.js y LEEME.txt.
 
-CÓMO SUBIRLO
-1. Descomprime el ZIP en tu ordenador.
-2. Abre tu repositorio de GitHub: our-christmas-calendar.
-3. En la pestaña Code, entra en Add file > Upload files.
-4. Arrastra los CUATRO archivos: index.html, style.css, app.js y content.js.
-5. GitHub indicará que va a reemplazar los archivos que ya existen. Confirma con Commit changes.
-6. Espera unos minutos y recarga la web. En móvil, prueba también en una pestaña privada si ves la versión antigua.
+En GitHub: Code > Add file > Upload files > arrastra los cinco archivos > Commit changes.
+Espera unos minutos y recarga la web. Si ves la versión anterior, prueba una ventana privada o una recarga forzada.
 
-IMPORTANTE
-- Haz una copia de tus archivos actuales antes de reemplazarlos.
-- Para cambiar los textos, edita content.js. Cada objeto corresponde a un día.
-- Los días anteriores se pueden volver a abrir; los futuros quedan bloqueados.
-- Antes del 1 de diciembre, el día 1 queda abierto para poder probar la web.
-- El contenido de GitHub Pages en un repositorio público es visible públicamente. No pongas información privada.
-- Los enlaces y fotos se pueden añadir más adelante. Para fotos, usa enlaces públicos de imagen.
+Al pulsar un día disponible, aparecerá un sobre grande en pantalla completa, se levantará la solapa y la carta saldrá y se desplegará mostrando el contenido.
+
+Para cambiar las sorpresas, edita content.js.

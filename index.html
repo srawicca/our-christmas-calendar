@@ -25,10 +25,19 @@
 
   <dialog class="letter-dialog" id="letterDialog">
     <button class="close-dialog" id="closeDialog" aria-label="Cerrar">×</button>
-    <div class="letter-paper">
-      <p class="letter-kicker" id="letterKicker">Una sorpresa para ti</p>
-      <h2 id="letterTitle">Día 1</h2>
-      <div class="letter-content" id="letterContent"></div>
+    <div class="opening-scene" id="openingScene">
+      <div class="big-envelope" id="bigEnvelope" aria-hidden="true">
+        <div class="envelope-back"></div>
+        <div class="envelope-letter"></div>
+        <div class="envelope-front"></div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-seal">✦</div>
+      </div>
+      <section class="revealed-letter" id="revealedLetter" aria-live="polite">
+        <p class="letter-kicker" id="letterKicker">Una sorpresa para ti</p>
+        <h2 id="letterTitle">Día 1</h2>
+        <div class="letter-content" id="letterContent"></div>
+      </section>
     </div>
   </dialog>
 
