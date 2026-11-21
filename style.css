@@ -131,7 +131,11 @@ h1 em { color: var(--wine); font-weight: 400; }
 
 
 
-/* Apertura del sobre y carta única */
+
+/* =====================================
+   APERTURA DEL SOBRE
+===================================== */
+
 .letter-dialog {
   width: 100vw;
   height: 100dvh;
@@ -166,6 +170,9 @@ h1 em { color: var(--wine); font-weight: 400; }
   font-size: 42px;
   width: 48px;
   height: 48px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
 }
 
 .opening-scene {
@@ -177,7 +184,10 @@ h1 em { color: var(--wine); font-weight: 400; }
   padding: 0;
 }
 
-/* El sobre */
+/* =====================================
+   SOBRE
+===================================== */
+
 .big-envelope {
   position: absolute;
   left: 50%;
@@ -191,7 +201,6 @@ h1 em { color: var(--wine); font-weight: 400; }
   animation: envelope-arrive .65s cubic-bezier(.2,.8,.2,1) both;
 }
 
-/* Eliminamos la carta vacía del interior */
 .envelope-letter {
   display: none !important;
 }
@@ -255,7 +264,8 @@ h1 em { color: var(--wine); font-weight: 400; }
   box-shadow: 0 2px 7px rgba(0,0,0,.3);
 }
 
-/* Apertura de la solapa */
+/* Animación del sobre */
+
 .big-envelope.opening .envelope-flap {
   animation: flap-open .9s .45s ease-in forwards;
 }
@@ -280,8 +290,14 @@ h1 em { color: var(--wine); font-weight: 400; }
 }
 
 @keyframes flap-open {
-  0% { transform: rotateX(0deg); z-index: 5; }
-  100% { transform: rotateX(180deg); z-index: 1; }
+  0% {
+    transform: rotateX(0deg);
+    z-index: 5;
+  }
+  100% {
+    transform: rotateX(180deg);
+    z-index: 1;
+  }
 }
 
 @keyframes seal-away {
@@ -297,7 +313,9 @@ h1 em { color: var(--wine); font-weight: 400; }
   }
 }
 
-/* ÚNICA carta: sale del sobre y queda encima */
+/* =====================================
+   CARTA ÚNICA CON DESPLAZAMIENTO
+===================================== */
 
 .revealed-letter {
   position: absolute;
@@ -305,162 +323,56 @@ h1 em { color: var(--wine); font-weight: 400; }
   left: 50%;
   top: 70%;
   transform: translate(-50%,-100%);
+
   width: min(500px, 88vw);
-  height: 58dvh;
-  max-height: 58dvh;
-  overflow-y: auto;
+  height: min(58dvh, 560px);
+  max-height: min(58dvh, 560px);
+
+  /* Desplazamiento independiente de la carta */
   overflow-x: hidden;
+  overflow-y: auto;
   touch-action: pan-y;
   pointer-events: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
+
   scrollbar-width: auto;
   scrollbar-color: #98784d #e8d8b9;
+
   opacity: 0;
   padding: 18px 24px 24px;
+  box-sizing: border-box;
+
   color: #3e2b20;
   text-align: center;
+
   background:
     repeating-linear-gradient(0deg,rgba(100,72,42,.025) 0 1px,transparent 1px 5px),
     radial-gradient(ellipse at 0 0,#fff9e8,transparent 55%),
     #f3e7cd;
+
   border: 1px solid #b99c6b;
   box-shadow: 0 18px 50px rgba(0,0,0,.35);
 }
+
+/* Barra de desplazamiento */
 
 .revealed-letter::-webkit-scrollbar {
   width: 9px;
 }
 
-.revealed-letter::-webkit-scrollbar-thumb {
-  background: #98784d;
+.revealed-letter::-webkit-scrollbar-track {
+  background: #e8d8b9;
   border-radius: 8px;
 }
 
-.revealed-letter .letter-content {
-  position: relative;
-  z-index: 1;
-  overflow: visible;
-  height: auto;
-  max-height: none;
-  white-space: normal;
+.revealed-letter::-webkit-scrollbar-thumb {
+  background: #98784d;
+  border: 2px solid #e8d8b9;
+  border-radius: 8px;
 }
 
-
-.revealed-letter::before {
-  content: "";
-  position: absolute;
-  inset: 9px;
-  border: 1px solid rgba(145,111,65,.45);
-  pointer-events: none;
-}
-
-.revealed-letter .letter-kicker,
-.revealed-letter h2,
-.revealed-letter .letter-content {
-  position: relative;
-  z-index: 1;
-}
-
-.revealed-letter .letter-kicker {
-  margin: 13px 0 0;
-  text-transform: uppercase;
-  letter-spacing: .16em;
-  font-size: 10px;
-  color: #806342;
-}
-
-.revealed-letter h2 {
-  margin: 5px 0 9px;
-  font: 30px 'IM Fell English', Georgia, serif;
-  color: #702b30;
-}
-
-.revealed-letter .letter-content {
-  font-size: clamp(16px, 2.4vw, 20px);
-  line-height: 1.22;
-  padding-bottom: 15px;
-}
-
-.revealed-letter .letter-content p {
-  margin: 4px 0;
-}
-
-.revealed-letter.show {
-  animation: letter-unfold .85s 1.45s cubic-bezier(.2,.8,.2,1) forwards;
-}
-
-@keyframes letter-unfold {
-  0% {
-    max-height: 0;
-    opacity: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    transform: translate(-50%,-100%) translateY(18px);
-  }
-  100% {
-    max-height: 58dvh;
-    opacity: 1;
-    padding-top: 18px;
-    padding-bottom: 24px;
-    transform: translate(-50%,-100%) translateY(0);
-  }
-}
-
-@media (max-width: 560px) {
-  .big-envelope {
-    width: 84vw;
-  }
-
-  .revealed-letter {
-    width: 90vw;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-
-  .revealed-letter h2 {
-    font-size: 27px;
-  }
-
-  .revealed-letter .letter-content {
-    font-size: 16px;
-    line-height: 1.2;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .big-envelope,
-  .big-envelope *,
-  .revealed-letter {
-    animation-duration: .01ms !important;
-    animation-delay: 0ms !important;
-  }
-
-/* Carta completa, con desplazamiento para leer todo el texto */
-.revealed-letter {
-  position: absolute;
-  z-index: 8;
-  left: 50%;
-  top: 70%;
-  transform: translate(-50%,-100%);
-  width: min(500px, 88vw);
-  height: min(58dvh, 560px);
-  max-height: min(58dvh, 560px);
-  overflow-y: auto;
-  overflow-x: hidden;
-  opacity: 0;
-  padding: 18px 24px 24px;
-  color: #3e2b20;
-  text-align: center;
-  background:
-    repeating-linear-gradient(0deg,rgba(100,72,42,.025) 0 1px,transparent 1px 5px),
-    radial-gradient(ellipse at 0 0,#fff9e8,transparent 55%),
-    #f3e7cd;
-  border: 1px solid #b99c6b;
-  box-shadow: 0 18px 50px rgba(0,0,0,.35);
-  scrollbar-width: thin;
-  scrollbar-color: #a58a60 #eee0c3;
-}
+/* Decoración del papel */
 
 .revealed-letter::before {
   content: "";
@@ -494,33 +406,47 @@ h1 em { color: var(--wine); font-weight: 400; }
 .revealed-letter .letter-content {
   font-size: clamp(17px, 2.4vw, 20px);
   line-height: 1.35;
-  padding-bottom: 18px;
+  padding-bottom: 25px;
+  white-space: normal;
+  overflow: visible;
+  height: auto;
+  max-height: none;
 }
 
 .revealed-letter .letter-content p {
   margin: 6px 0;
 }
 
+/* Despliegue: solo anima la aparición, no la altura */
+
 .revealed-letter.show {
   animation: letter-unfold .85s 1.45s cubic-bezier(.2,.8,.2,1) forwards;
 }
 
 @keyframes letter-unfold {
-  0% {
+  from {
     opacity: 0;
     transform: translate(-50%,-100%) translateY(18px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translate(-50%,-100%) translateY(0);
   }
 }
 
+/* =====================================
+   MÓVILES
+===================================== */
+
 @media (max-width: 560px) {
+  .big-envelope {
+    width: 84vw;
+  }
+
   .revealed-letter {
     width: 90vw;
-    height: min(55dvh, 520px);
-    max-height: min(55dvh, 520px);
+    height: 55dvh;
+    max-height: 55dvh;
     padding: 15px 16px 20px;
   }
 
@@ -534,47 +460,13 @@ h1 em { color: var(--wine); font-weight: 400; }
   }
 }
 
-/* Lectura de la carta con barra lateral */
-.revealed-letter {
-  height: 58dvh !important;
-  max-height: 58dvh !important;
-  overflow-y: scroll !important;
-  overflow-x: hidden !important;
-  overscroll-behavior: contain;
-  scrollbar-width: thin;
-  scrollbar-color: #98784d #e8d8b9;
-  -webkit-overflow-scrolling: touch;
-  box-sizing: border-box;
-}
+/* Accesibilidad */
 
-/* Barra visible en navegadores Chromium */
-.revealed-letter::-webkit-scrollbar {
-  width: 9px;
-}
-
-.revealed-letter::-webkit-scrollbar-track {
-  background: #e8d8b9;
-  border-radius: 8px;
-}
-
-.revealed-letter::-webkit-scrollbar-thumb {
-  background: #98784d;
-  border: 2px solid #e8d8b9;
-  border-radius: 8px;
-}
-
-.revealed-letter .letter-content {
-  overflow: visible;
-  height: auto;
-  max-height: none;
-  white-space: normal;
-  padding-bottom: 25px;
-}
-
-@media (max-width: 560px) {
+@media (prefers-reduced-motion: reduce) {
+  .big-envelope,
+  .big-envelope *,
   .revealed-letter {
-    height: 55dvh !important;
-    max-height: 55dvh !important;
+    animation-duration: .01ms !important;
+    animation-delay: 0ms !important;
   }
 }
-
