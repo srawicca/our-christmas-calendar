@@ -1,31 +1,31 @@
-/* EDITA SOLO ESTE ARCHIVO para personalizar cada día.
-   Puedes cambiar title y text. Opcionalmente añade image, video o link.
-   image: ruta de una imagen (ej. "fotos/recuerdo1.jpg")
-   video: URL de un vídeo (YouTube, etc.); link: URL que se mostrará como enlace.
+/*
+  EDITA AQUÍ EL CONTENIDO DE CADA DÍA.
+  Cambia title y message. Puedes usar enlaces HTML sencillos en message.
+  Ejemplo: message: 'Mira <a href="https://ejemplo.com" target="_blank">este vídeo</a>.'
 */
 const adventContent = [
-  {title:"Día 1", text:"Aquí escribe tu sorpresa del día 1 ♡"},
-  {title:"Día 2", text:"Aquí escribe tu sorpresa del día 2 ♡"},
-  {title:"Día 3", text:"Aquí escribe tu sorpresa del día 3 ♡"},
-  {title:"Día 4", text:"Aquí escribe tu sorpresa del día 4 ♡"},
-  {title:"Día 5", text:"Aquí escribe tu sorpresa del día 5 ♡"},
-  {title:"Día 6", text:"Aquí escribe tu sorpresa del día 6 ♡"},
-  {title:"Día 7", text:"Aquí escribe tu sorpresa del día 7 ♡"},
-  {title:"Día 8", text:"Aquí escribe tu sorpresa del día 8 ♡"},
-  {title:"Día 9", text:"Aquí escribe tu sorpresa del día 9 ♡"},
-  {title:"Día 10", text:"Aquí escribe tu sorpresa del día 10 ♡"},
-  {title:"Día 11", text:"Aquí escribe tu sorpresa del día 11 ♡"},
-  {title:"Día 12", text:"Aquí escribe tu sorpresa del día 12 ♡"},
-  {title:"Día 13", text:"Aquí escribe tu sorpresa del día 13 ♡"},
-  {title:"Día 14", text:"Aquí escribe tu sorpresa del día 14 ♡"},
-  {title:"Día 15", text:"Aquí escribe tu sorpresa del día 15 ♡"},
-  {title:"Día 16", text:"Aquí escribe tu sorpresa del día 16 ♡"},
-  {title:"Día 17", text:"Aquí escribe tu sorpresa del día 17 ♡"},
-  {title:"Día 18", text:"Aquí escribe tu sorpresa del día 18 ♡"},
-  {title:"Día 19", text:"Aquí escribe tu sorpresa del día 19 ♡"},
-  {title:"Día 20", text:"Aquí escribe tu sorpresa del día 20 ♡"},
-  {title:"Día 21", text:"Aquí escribe tu sorpresa del día 21 ♡"},
-  {title:"Día 22", text:"Aquí escribe tu sorpresa del día 22 ♡"},
-  {title:"Día 23", text:"Aquí escribe tu sorpresa del día 23 ♡"},
-  {title:"Día 24", text:"Aquí escribe tu sorpresa especial de Nochebuena ♡"}
+  { title: "Una nota para empezar", message: "¡Empieza la magia! Hoy solo quiero recordarte lo especial que eres para mí. ❤️" },
+  { title: "Un recuerdo bonito", message: "Aquí puedes escribir un recuerdo vuestro que siempre te haga sonreír." },
+  { title: "Una canción", message: "Añade aquí el enlace a una canción que os recuerde a un momento especial." },
+  { title: "Tres cosas que adoro de ti", message: "1. Tu sonrisa.\n2. Tu forma de cuidarme.\n3. Cómo haces especiales los días normales." },
+  { title: "Una foto nuestra", message: "Sustituye este texto por un enlace a una foto vuestra." },
+  { title: "Un plan juntos", message: "Hoy te propongo una cita: elige una película y preparo algo rico." },
+  { title: "Un abrazo enorme", message: "Aunque hoy no pueda envolverte en uno, te mando el abrazo más grande del mundo." },
+  { title: "Nuestro momento favorito", message: "Escribe aquí cuál es uno de tus momentos favoritos juntos." },
+  { title: "Un pequeño reto", message: "Hoy tenemos un reto: decirnos algo bonito que nunca nos hayamos dicho." },
+  { title: "Una promesa", message: "Prometo seguir buscando motivos para hacerte sonreír." },
+  { title: "Una sorpresa", message: "Escribe aquí una pista de la sorpresa que has preparado." },
+  { title: "Nuestra banda sonora", message: "Añade el enlace de vuestra canción especial." },
+  { title: "Lo que viene", message: "Tengo muchas ganas de seguir creando recuerdos contigo." },
+  { title: "Un vale por...", message: "Vale por un masaje, una cena o el plan que tú elijas. ❤️" },
+  { title: "Una pequeña aventura", message: "Elige un lugar al que todavía no hayamos ido y lo convertimos en un plan." },
+  { title: "Gracias", message: "Gracias por estar, por escuchar y por hacer que mi vida sea más bonita." },
+  { title: "Una foto especial", message: "Añade aquí una foto que tenga una historia detrás." },
+  { title: "Tu día", message: "Hoy eliges tú qué hacemos. Yo me apunto." },
+  { title: "Una lista", message: "Cinco cosas que quiero hacer contigo: viajar, cocinar, reír, descubrir sitios y seguir sumando días." },
+  { title: "Un deseo", message: "Mi deseo es que nos sigamos eligiendo y cuidando cada día." },
+  { title: "Un secreto", message: "Aquí puedes escribir algo bonito que quieras contarle." },
+  { title: "Noche especial", message: "Reserva esta noche para nosotros. ❤️" },
+  { title: "Ya casi es Navidad", message: "La Navidad es más bonita cuando la comparto contigo." },
+  { title: "Feliz Navidad", message: "Esta es la última ventanita, pero no la última sorpresa. Te quiero. ❤️" }
 ];
