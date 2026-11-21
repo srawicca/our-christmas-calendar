@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#20382b"><title>Un diciembre para ti</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <div class="eyebrow">DICIEMBRE · 2026</div>
+      <h1>Un diciembre para ti <span>♡</span></h1>
+      <p>24 pequeños regalos, escondidos para ti.</p>
+      <div class="ornament">✦ ❄ ✦</div>
+    </header>
+    <section id="calendar" class="calendar" aria-label="Calendario de adviento"></section>
+    <footer>Hecho con mucho cariño, solo para ti ♡</footer>
+  </main>
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <article class="letter" role="dialog" aria-modal="true" aria-labelledby="letter-title">
+      <button class="close" aria-label="Cerrar" data-close>×</button>
+      <div class="letter-top">UN PEQUEÑO REGALO</div>
+      <h2 id="letter-title"></h2>
+      <div id="letter-content" class="letter-content"></div>
+      <div class="letter-bottom">♡ Con cariño ♡</div>
+    </article>
+  </div>
+  <script src="content.js"></script><script src="app.js"></script>
+</body>
+</html>
