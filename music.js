@@ -13,21 +13,35 @@
     button.setAttribute("aria-pressed", String(isPlaying));
     button.setAttribute(
       "aria-label",
-      isPlaying ? "Apagar música" : "Activar música"
+      isPlaying ? "Apagar música" : "Encender música"
     );
-    button.title = isPlaying ? "Apagar música" : "Activar música";
-    button.innerHTML = isPlaying ? "♫" : "♪";
+    button.title = isPlaying ? "Apagar música" : "Encender música";
+    button.textContent = isPlaying ? "♫" : "♪";
   }
 
-  button.addEventListener("click", async () => {
+  async function startMusic() {
+    try {
+      await music.play();
+      updateButton(true);
+      document.removeEventListener("click", startMusic);
+    } catch (error) {
+      updateButton(false);
+    }
+  }
+
+  // Intentar reproducir al entrar en la página
+  startMusic();
+
+  // Si el navegador bloquea la reproducción automática,
+  // arrancará al primer toque del usuario
+  document.addEventListener("click", startMusic);
+
+  // El botón permite apagar y volver a encender la música
+  button.addEventListener("click", async (event) => {
+    event.stopPropagation();
+
     if (music.paused) {
-      try {
-        await music.play();
-        updateButton(true);
-      } catch (error) {
-        updateButton(false);
-        console.error("No se pudo reproducir la música:", error);
-      }
+      await startMusic();
     } else {
       music.pause();
       updateButton(false);
@@ -36,6 +50,4 @@
 
   music.addEventListener("play", () => updateButton(true));
   music.addEventListener("pause", () => updateButton(false));
-
-  updateButton(false);
 })();
