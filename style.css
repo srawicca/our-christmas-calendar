@@ -506,3 +506,47 @@ h1 em { color: var(--wine); font-weight: 400; }
   }
 }
 
+/* Lectura de la carta con barra lateral */
+.revealed-letter {
+  height: 58dvh !important;
+  max-height: 58dvh !important;
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #98784d #e8d8b9;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+
+/* Barra visible en navegadores Chromium */
+.revealed-letter::-webkit-scrollbar {
+  width: 9px;
+}
+
+.revealed-letter::-webkit-scrollbar-track {
+  background: #e8d8b9;
+  border-radius: 8px;
+}
+
+.revealed-letter::-webkit-scrollbar-thumb {
+  background: #98784d;
+  border: 2px solid #e8d8b9;
+  border-radius: 8px;
+}
+
+.revealed-letter .letter-content {
+  overflow: visible;
+  height: auto;
+  max-height: none;
+  white-space: normal;
+  padding-bottom: 25px;
+}
+
+@media (max-width: 560px) {
+  .revealed-letter {
+    height: 55dvh !important;
+    max-height: 55dvh !important;
+  }
+}
+
