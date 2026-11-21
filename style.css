@@ -636,3 +636,69 @@ h1 em {
     transition-duration: .01ms !important;
   }
 }
+
+/* BOTÓN DE MÚSICA */
+
+.music-button {
+  position: fixed;
+  z-index: 50;
+  right: 22px;
+  bottom: 22px;
+
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+
+  display: grid;
+  place-items: center;
+
+  background: linear-gradient(145deg, #f3e5c8, #d8bd8c);
+  color: #702b30;
+
+  border: 1px solid #a98a59;
+  box-shadow:
+    0 4px 12px rgba(35,24,14,.28),
+    inset 0 0 0 3px rgba(255,255,255,.22);
+
+  font-family: Georgia, serif;
+  font-size: 29px;
+  cursor: pointer;
+
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.music-button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(35,24,14,.35);
+}
+
+.music-button:focus-visible {
+  outline: 3px solid #c5a66d;
+  outline-offset: 4px;
+}
+
+.music-button.music-playing {
+  background: linear-gradient(145deg, #803b3e, #4b1d24);
+  color: #f3e5c8;
+  border-color: #c5a66d;
+  animation: music-pulse 2s ease-in-out infinite;
+}
+
+@keyframes music-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(35,24,14,.28);
+  }
+  50% {
+    box-shadow: 0 4px 18px rgba(197,166,109,.55);
+  }
+}
+
+@media (max-width: 560px) {
+  .music-button {
+    width: 49px;
+    height: 49px;
+    right: 14px;
+    bottom: 14px;
+    font-size: 26px;
+  }
+}
