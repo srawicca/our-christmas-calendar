@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -20,11 +21,32 @@
       <div class="calendar" id="calendar"></div>
     </section>
 
-    <footer class="footer-note">Hecho con cariño, para ti <span>♥</span></footer>
+    <footer class="footer-note">
+      Hecho con cariño, para ti <span>♥</span>
+    </footer>
   </main>
+
+  <!-- Música de fondo -->
+  <audio id="backgroundMusic" loop preload="auto">
+    <source src="musica.mp3" type="audio/mpeg">
+    Tu navegador no puede reproducir este archivo de audio.
+  </audio>
+
+  <!-- Botón para encender y apagar la música -->
+  <button
+    id="musicButton"
+    class="music-button"
+    type="button"
+    aria-label="Activar música"
+    aria-pressed="false"
+    title="Activar música"
+  >
+    <span aria-hidden="true">♫</span>
+  </button>
 
   <dialog class="letter-dialog" id="letterDialog">
     <button class="close-dialog" id="closeDialog" aria-label="Cerrar">×</button>
+
     <div class="opening-scene" id="openingScene">
       <div class="big-envelope" id="bigEnvelope" aria-hidden="true">
         <div class="envelope-back"></div>
@@ -33,6 +55,7 @@
         <div class="envelope-flap"></div>
         <div class="envelope-seal">✦</div>
       </div>
+
       <section class="revealed-letter" id="revealedLetter" aria-live="polite">
         <p class="letter-kicker" id="letterKicker">Una sorpresa para ti</p>
         <h2 id="letterTitle">Día 1</h2>
@@ -43,5 +66,6 @@
 
   <script src="content.js"></script>
   <script src="app.js"></script>
+  <script src="music.js"></script>
 </body>
 </html>
