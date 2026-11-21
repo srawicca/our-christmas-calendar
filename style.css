@@ -363,12 +363,18 @@ h1 em { color: var(--wine); font-weight: 400; }
 }
 
 @keyframes letter-unfold {
-  from {
+  0% {
+    max-height: 0;
     opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
     transform: translate(-50%,-100%) translateY(18px);
   }
-  to {
+  100% {
+    max-height: 58dvh;
     opacity: 1;
+    padding-top: 18px;
+    padding-bottom: 24px;
     transform: translate(-50%,-100%) translateY(0);
   }
 }
