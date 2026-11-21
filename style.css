@@ -298,6 +298,7 @@ h1 em { color: var(--wine); font-weight: 400; }
 }
 
 /* ÚNICA carta: sale del sobre y queda encima */
+
 .revealed-letter {
   position: absolute;
   z-index: 8;
@@ -305,10 +306,18 @@ h1 em { color: var(--wine); font-weight: 400; }
   top: 70%;
   transform: translate(-50%,-100%);
   width: min(500px, 88vw);
-  max-height: 0;
-  overflow: hidden;
+  height: 58dvh;
+  max-height: 58dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  touch-action: pan-y;
+  pointer-events: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: auto;
+  scrollbar-color: #98784d #e8d8b9;
   opacity: 0;
-  padding: 0 22px;
+  padding: 18px 24px 24px;
   color: #3e2b20;
   text-align: center;
   background:
@@ -318,6 +327,25 @@ h1 em { color: var(--wine); font-weight: 400; }
   border: 1px solid #b99c6b;
   box-shadow: 0 18px 50px rgba(0,0,0,.35);
 }
+
+.revealed-letter::-webkit-scrollbar {
+  width: 9px;
+}
+
+.revealed-letter::-webkit-scrollbar-thumb {
+  background: #98784d;
+  border-radius: 8px;
+}
+
+.revealed-letter .letter-content {
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+  height: auto;
+  max-height: none;
+  white-space: normal;
+}
+
 
 .revealed-letter::before {
   content: "";
