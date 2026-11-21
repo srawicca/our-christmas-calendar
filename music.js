@@ -23,23 +23,24 @@
     try {
       await music.play();
       updateButton(true);
-      document.removeEventListener("click", startMusic);
+      document.removeEventListener("pointerdown", startMusic);
     } catch (error) {
       updateButton(false);
     }
   }
 
-  // Intentar reproducir al entrar en la página
+  // Intentar iniciar la música al abrir la página
   startMusic();
 
-  // Si el navegador bloquea la reproducción automática,
-  // arrancará al primer toque del usuario
-  document.addEventListener("click", startMusic);
+  // Si el navegador bloquea el inicio automático,
+  // comenzará al primer toque fuera del botón
+  document.addEventListener("pointerdown", (event) => {
+    if (event.target.closest("#musicButton")) return;
+    startMusic();
+  });
 
-  // El botón permite apagar y volver a encender la música
-  button.addEventListener("click", async (event) => {
-    event.stopPropagation();
-
+  // Botón para apagar o volver a encender
+  button.addEventListener("click", async () => {
     if (music.paused) {
       await startMusic();
     } else {
@@ -50,4 +51,6 @@
 
   music.addEventListener("play", () => updateButton(true));
   music.addEventListener("pause", () => updateButton(false));
+
+  updateButton(false);
 })();
